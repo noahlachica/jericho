@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="style.css" type="text/css" media="all" />
+<title>User Table</title>
+
+
+
+</head>
+<body>
+  <div id="parent">
+    <div id="header"><h1>Finals</h1>
+      
+    </div>
+    <div id="navigation">
+    <a href="home">home</a>
+    <br />
+    <a href="login.html">login</a
+    <br>
+    
+    <a href="contact">contact</a>
+    <br />
+    <a href="Aboutus">About Us</a>
+      
+    </div>
+    
+    
+    
+    <div id="content">
+   
+<h2>User Information Form</h2>
+
+<input type="text" id="firstName" placeholder="First Name"><br>
+<input type="text" id="middleName" placeholder="Middle Name"><br>
+<input type="text" id="lastName" placeholder="Last Name"><br>
+<input type="email" id="email" placeholder="Email"><br>
+<input type="number" id="age" placeholder="Age"><br>
+
+<button onclick="checker()">Submit</button>
+
+<div id="result"></div>
+
+<table border>
+<thead>
+<tr>
+  
+<th>First Name</th>
+<th>Middle Name</th>
+<th>Last Name</th>
+<th>Email</th>
+<th>Age</th>
+</tr>
+</thead>
+<tbody id="userTableBody">
+<!-- JS will insert rows here -->
+</tbody>
+</table>
+
+<script>
+let users = [];
+
+function checker() {
+let firstName = document.getElementById("firstName").value;
+let middleName = document.getElementById("middleName").value;
+let lastName = document.getElementById("lastName").value;
+let email = document.getElementById("email").value;
+let age = document.getElementById("age").value;
+let result = document.getElementById("result");
+
+// validation
+if (!firstName || !lastName || !email || !age) {
+result.textContent = "Blank field detected";
+result.style.color = "red";
+return;
+}
+
+if (age < 18) {
+result.textContent = "You are not old enough";
+result.style.color = "red";
+return;
+}
+
+if (!email.endsWith("@gmail.com")) {
+result.textContent = "You need @gmail.com";
+result.style.color = "red";
+return;
+}
+
+// push to array
+users.push({ firstName, middleName, lastName, email, age });
+
+// display to table
+let tbody = document.getElementById("userTableBody");
+tbody.innerHTML = "";
+
+users.forEach(user => {
+let row = `
+<tr>
+<td>${user.firstName}</td>
+<td>${user.middleName}</td>
+<td>${user.lastName}</td>
+<td>${user.email}</td>
+<td>${user.age}</td>
+</tr>
+`;
+tbody.innerHTML += row;
+});
+
+result.textContent = "User added successfully!";
+result.style.color = "green";
+
+// clear inputs
+document.getElementById("firstName").value = "";
+document.getElementById("middleName").value = "";
+document.getElementById("lastName").value = "";
+document.getElementById("email").value = "";
+document.getElementById("age").value = "";
+}
+</script>
+</div>
+<div id="footer">
+  <a href="facebook">facebook</a>
+  <a href="instagram">instagram</a>
+  <a href="youtube">youtube</a>
+  
+</div>
+  </div>
+</body>
+</html>
+<script type="main.js" charset="utf-8">
+  
+</script>
