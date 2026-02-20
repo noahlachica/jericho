@@ -1,0 +1,38 @@
+#parent {
+    background-color: rebeccapurple;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        'header header'
+        'navigation content'
+        'footer footer';
+}
+
+#header {
+    grid-area: header;
+    background-color: blue;
+    color: white;
+    text-align: center;
+}
+ 
+#navigation {
+    grid-area: navigation;
+    background-color: blue;
+    
+}
+
+#content {
+    grid-area: content;
+    background-color: azure;
+    text-align: center;
+}
+
+#footer {
+    grid-area: footer;
+    background-color: blue;
+    color: beige;
+    display: flex;
+    justify-content: space-between;
+}
